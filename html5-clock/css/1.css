@@ -1,0 +1,67 @@
+@charset "utf-8";
+/* CSS Document */
+*{margin:0;padding:0}
+.div0{
+	position:relative;
+	width:250px;
+	height:250px;
+	margin:0px auto;
+	border-radius:50%;
+	background:-webkit-linear-gradient(left,red 0,blue 30%,green 60%,yellow 90%);	
+}
+.div1{
+	position:absolute;
+	top:10px;
+	left:10px;
+	width:230px;
+	height:230px;
+	border-radius:50%;
+	background:white;
+	box-shadow:5px 5px 5px 5px #666666 inset;
+}
+#div2{
+	width:20px;
+	height:220px;
+	position:absolute;
+	top:5px;
+	left:105px;
+}
+#div2 div{
+	position:absolute;
+	width:20px;
+	height:220px;
+}
+#div2 div span{
+	width:20px;
+	height:20px;
+	float:left;
+	text-align:center;
+}
+#hour{
+	width:5px;
+	height:70px;
+	position:absolute;
+	top:45px;
+	left:113.5px;
+	background:#0F0;
+	transform-origin:bottom;
+}
+#minute{
+	width:3px;
+	height:80px;
+	position:absolute;
+	top:35px;
+	left:113.5px;
+	background:#F00;
+	transform-origin:bottom;
+}
+#second{
+	width:1px;
+	height:114px;
+	position:absolute;
+	top:2px;
+	left:113.5px;
+	background:#303;
+	transform-origin:bottom;
+}
+

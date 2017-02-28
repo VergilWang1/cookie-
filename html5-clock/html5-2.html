@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>无标题文档</title>
+	<link rel="stylesheet" href="./css/1.css" type="text/css"/>
+  	<script src="./js/1.js" type="text/javascript"></script>
+</head>
+
+<body>
+	<div class="div0">
+    	<div class="div1">
+        	<div id="div2">
+                <div><span>1</span></div>
+                <div><span>2</span></div>
+                <div><span>3</span></div>
+                <div><span>4</span></div>
+                <div><span>5</span></div>
+                <div><span>6</span></div>
+                <div><span>7</span></div>
+                <div><span>8</span></div>
+                <div><span>9</span></div>
+                <div><span>10</span></div>
+                <div><span>11</span></div>
+                <div><span>12</span></div>
+            </div>
+            <div id="hour"></div>
+            <div id="minute"></div>
+            <div id="second"></div>
+        </div>
+    </div>
+</body>
+	<script type="text/javascript">
+		function ii(){
+			var x=document.getElementById("div2");
+			var y=x.getElementsByTagName("div");
+			var z=x.getElementsByTagName("span");
+			for(var i=0;i<y.length;i++){
+				var rot=30*(i+1);
+				y[i].style.transform="rotate("+rot+"deg)";
+				z[i].style.transform="rotate("+(-rot)+"deg)";	
+			}	
+		}
+		ii();
+		function time(){
+			var h=document.getElementById("hour");
+			var m=document.getElementById("minute");
+			var s=document.getElementById("second");
+			var times=new Date();
+			var hours=times.getHours();
+			var minutes=times.getMinutes();
+			var seconds=times.getSeconds();
+			var sec=seconds*6;
+			var minu=minutes*6;
+			var hou=hours*30;
+			h.style.transform="rotate("+hou+"deg)";
+			m.style.transform="rotate("+minu+"deg)";
+			s.style.transform="rotate("+sec+"deg)";
+		}
+		setInterval("time()",100);
+	</script>
+</html>
