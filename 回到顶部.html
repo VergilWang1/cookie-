@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+		#btn
+		{
+			position:fixed;
+			bottom:0;
+			right:0;
+		}
+	</style>
+	<script type="text/javascript">
+	window.onload=function()
+	{
+		var oBtn=document.getElementById("btn");
+		var timer=null;
+		var bSys=true;                   //当窗口自动滚动时，为事件true；
+                                         //当用户使窗口滚动时，为时间false；
+		window.onscroll=function()        //当事件为false时，关闭定时器。
+		{
+			if(!bSys)
+			{
+				clearInterval(timer);
+			}
+			bSys=false;
+		};
+
+		oBtn.onclick=function()
+		{
+			timer=setInterval(function()
+			{
+				var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
+				var iSpeed=Math.floor(-scrollTop/8);  //Math.floor()是最接近的小的一个数。
+
+				if(scrollTop==0)             //当滚动条移动到最顶端的关闭定时器
+				{
+					clearInterval(timer);
+				};
+
+				bSys=true;
+
+				document.documentElement.scrollTop=document.body.scrollTop=scrollTop+iSpeed;
+			},30);
+		}
+	}
+	</script>
+</head>
+<body style="height:2000px">
+<input type="button" id="btn" value="回到顶部"/>
+</body>
+</html>
