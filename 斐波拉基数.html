@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+	//100以内的斐波拉基数；
+		var a=2,s=3,d=5,sum=0;
+		document.write(a+" ");
+		for(;a<=100;){
+			sum+=a;
+			a=s;
+			s=d;
+			d=a+s;
+			document.write(a+" ");	
+		}
+		document.write("和为："+sum+"<br/>");
+
+		a=2,s=3,d=5,sum=0;
+		var i=0;
+		while(i<=100){
+			document.write(a+" ");
+			if(a<=100){
+				sum+=a;
+				a=s;
+				s=d;
+				d=a+s;
+			}else{break;}
+			i++;
+		}
+		document.write("和为："+sum+"<br/>");
+
+		a=2,s=3,d=5,sum=0;
+		do{
+			document.write(a+" ");
+			sum+=a;
+			a=s;
+			s=d;
+			d=a+s;
+		}while(a<=100);
+		document.write(a+" ");
+		document.write("和为："+sum+"<br/>");
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

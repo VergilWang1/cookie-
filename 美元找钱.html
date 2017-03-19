@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		/*
+    一个小孩买了价值少于1美元的糖，并将1美元的钱交给售货员。
+	售货员希望用数目最少的硬币找给小孩。
+	假设提供了数目不限的面值为2 5美分、1 0美分、5美分、
+	及1美分的硬币，写一个算法让售货员用最少的硬币数找给小孩
+  */
+  		var num=parseInt(prompt("输入1到100美分"));
+ 		var sum=100-num;
+ 		
+ 		var q1=0,q2=0,q3=0,q4=0,q=0;
+ 		
+ 		for(;sum>0;){
+ 			if(sum/25>=1){
+ 				sum-=25;
+ 				q1++;
+ 			}else if(sum/10>=1){
+ 				sum-=10;
+ 				q2++;
+ 			}else if(sum/5>=1){
+ 				sum-=5;
+ 				q3++;
+ 			}else{
+ 				sum--;
+ 				q4++;
+ 			}
+ 			q++;
+ 		}
+ 		document.write("25美分的有："+q1+"<br/>10美分的有："+q2+"<br/>5美分的有："+q3+"<br/>1美分的有："+q4+"<br/>"+"总的银币数："+q+"<br/>");
+
+ 		sum=100-num;
+ 		q1=0,q2=0,q3=0,q4=0,q=0;
+ 		while(sum>0){
+ 			if(sum/25>=1){
+ 				sum-=25;
+ 				q1++;
+ 			}else if(sum/10>=1){
+ 				sum-=10;
+ 				q2++;
+ 			}else if(sum/5>=1){
+ 				sum-=5;
+ 				q3++;
+ 			}else{
+ 				q4++;
+ 				sum--;
+ 			}
+ 			q++;
+ 		}
+ 		document.write("25美分的有："+q1+"<br/>10美分的有："+q2+"<br/>5美分的有："+q3+"<br/>1美分的有："+q4+"<br/>"+"总的银币数："+q+"<br/>");
+
+ 		sum=100-num;
+ 		q1=0,q2=0,q3=0,q4=0,q=0;
+ 		do{
+ 			if(sum/25>=1){
+ 				sum-=25;
+ 				q1++;
+ 			}else if(sum/10>=1){
+ 				sum-=10;
+ 				q2++;
+ 			}else if(sum/5>=1){
+ 				sum-=5;
+ 				q3++;
+ 			}else{
+ 				sum--;
+ 				q4++;
+ 			}
+ 			q++;
+ 		}while(sum>0);
+ 		document.write("25美分的有："+q1+"<br/>10美分的有："+q2+"<br/>5美分的有："+q3+"<br/>1美分的有："+q4+"<br/>"+"总的银币数："+q+"<br/>");
+</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>for循环打印金字塔</title>
+	<script type="text/javascript">
+		var num=parseInt(prompt("输入"));
+		for(var h=1;h<=num;h++){
+			document.write("<div style'text-align:center;>");
+			for(var j=1;j<=h;j++){
+				document.write("* ");
+			}
+			document.write("</div>");
+		}
+		for(var a=1;a<=num;a++){
+			document.write("<div style='text-align:center;'>");
+				for(var s=1;s<=a;s++){
+					document.write("* ");
+				}
+			document.write("</div>");
+		}
+		document.write("<hr/>");
+		for(var d=1;d<=num;d++){
+			document.write("<div style='text-align:center;'>");
+			for(var f=d;f<=num;f++){
+				document.write("* ");
+			}
+			document.write("</div>");
+		}
+		document.write("<hr/>");
+		for(var q=1;q<=num;q++){
+			document.write("<div style='text-align:center;'>");
+			if(parseInt(num/2)>=q){
+				for(var w=1;w<=q;w++){
+					document.write("* ");
+				}
+			}else{
+				for(var e=q;e<=num;e++){
+					document.write("* ");
+				}
+			}
+			document.write("</div>");
+		}
+		document.write("<hr/>");
+		for(var z=1;z<=num;z++){
+			document.write("<div style='text-align:center;'>");
+			if(parseInt(num/2)>=z){
+				for(var x=z;x<=parseInt(num/2);x++){
+					document.write("* ");
+				}
+			}else{
+				for(var c=parseInt(num/2);c<=z;c++){
+					document.write("* ");
+				}
+			}
+			document.write("</div>");
+		}
+		document.write("<hr/>");
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+	//请计算 1/2+3/3+6/5+11/8+19/13.....分母在100以内的和
+		var s=3,d=5,f=1;
+		for(var a=2;a<=100;){
+			document.write(f+"/"+a+"<br/>");
+			f+=a;
+			a=s;
+			s=d;
+			d=a+s;
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

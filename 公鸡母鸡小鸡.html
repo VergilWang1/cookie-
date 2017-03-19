@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+	/*公鸡5元一只，母鸡4元一只，小鸡一元3只，
+请问100元钱要买100只鸡，怎么买？共有多少种买法？*/
+		var num=0;
+		for(var a=0;a<=20;a++){
+			for(var s=0;s<=25;s++){
+				for(var d=0;d<=300;d++){
+					if(a*5+s*4+d/3==100 && a+s+d==100){
+						document.write("公鸡为："+a+"只，母鸡为："+s+"只，小鸡为："+d+"只。<br/>");
+						num++;
+					}
+				}
+			}
+		}
+		document.write("总有："+num+"种<br/>");
+
+		var z=0;
+		num=0;
+		while(z<=20){
+			var x=0;
+			while(x<=25){
+				var c=0;
+				while(c<=300){
+					if(z*5+x*4+c/3==100 && z+x+c==100){
+						document.write("公鸡为："+z+"只，母鸡为："+x+"只，小鸡为："+c+"只。<br/>");
+						num++;
+					}
+					c++;
+				}
+				x++;
+			}
+			z++;
+		}
+		document.write("总有："+num+"种<br/>");
+
+		num=0;
+		var q=0;
+		do{
+			var w=0;
+			do{
+				var e=0;
+				do{
+					if(q*5+w*4+e/3==100 && q+w+e==100){
+						document.write("公鸡为："+q+"只，母鸡为："+w+"只，小鸡为："+e+"只。<br/>");
+						num++;
+					}
+					e++;
+				}while(e<=300);
+				w++;
+			}while(w<=25);
+			q++;
+		}while(q<=20);
+		document.write("总有："+num+"种<br/>");
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
