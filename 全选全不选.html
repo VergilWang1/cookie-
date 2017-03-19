@@ -1,0 +1,57 @@
+
+<html> 
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<title>无标题文档</title> 
+<script type="text/javascript" language="javascript"> 
+function oo() 
+{ 
+var x = document.getElementsByName("preDelCheck"); 
+var desc = document.getElementById("allChecked"); 
+var ii=false; 
+for(var i = 0; i < x.length; i ++ ) 
+{ 
+if(x[i].checked){ 
+ii=true; 
+break; 
+} 
+} 
+if (ii) 
+{ 
+a(x); 
+}else 
+{ 
+b(x); 
+} 
+} 
+function b(x){ 
+for(var i = 0; i < x.length; i ++ ) 
+{ 
+x[i].checked = true; 
+} 
+} 
+function a(x){ 
+for(var i = 0; i < x.length; i ++ ) 
+{ 
+x[i].checked = false; 
+} 
+} 
+</script> 
+</head> 
+<body> 
+<p>test</p> 
+<form> 
+<input type="checkbox" name="preDelCheck" value="cream">ID1
+
+<input type="checkbox" name="preDelCheck" value="sugar" >ID2
+
+<input type="checkbox" name="preDelCheck" value="sugar">ID3
+
+<input type="checkbox" name="preDelCheck" value="sugar">ID4
+
+<input type="checkbox" name="preDelCheck" value="sugar">ID5
+
+<input type="button" id="allChecked" value="全选/取消全选" onClick="oo()"> 
+</form> 
+</body> 
+</html>
