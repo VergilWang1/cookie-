@@ -1,0 +1,171 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style type="text/css">
+	*{
+		margin:0px;
+		padding:0px;	
+	}
+	.ul1{
+		list-style:none;
+		line-height:30px;
+		text-align:center;
+		overflow:hidden;	
+	}
+	.ul2{
+		list-style:none;
+		line-height:120px;
+		height:120px;
+		text-align:center;
+		overflow:hidden;
+		border-bottom:1px solid;
+		width:565px;
+	}
+	[name="jia"],
+	[name="jian"]{
+		width:20px;	
+	}
+	img{vertical-align:middle;}
+	li{float:left;border:1px solid;}
+	.li1{width:70px;}
+	.li2{width:150px;}
+	.li3{width:120px;}
+	.li4{width:70px;}
+	.li5{width:70px;}
+	.li6{width:70px;}
+	#div{
+		padding:10px;	
+	}
+	#div input{
+		width:70px;	
+	}
+</style>
+<script type="text/javascript">
+	window.onload=function(){
+		var aJia=document.getElementsByName("jia");
+		var aJian=document.getElementsByName("jian");
+		var aShan=document.getElementsByName("shan");
+		var aXuan=document.getElementsByName("xuan");
+		var oQuanxuan=document.getElementsByName("quanxuan")[0];
+		var oQuanshan=document.getElementsByName("quanshan")[0];
+		var oAdd=document.getElementsByName("add")[0];
+		var aUl=document.getElementsByClassName("ul2");
+		function xiaoji(){
+			for(var i=0;i<aUl.length;i++){
+				//alert(aUl[i].children[4].lastElementChild.innerHTML)
+				var xiaoji=aUl[i].children[4].lastElementChild;
+				var shuliang=aUl[i].children[2].children[1];
+				var danjia=aUl[i].children[3].lastElementChild;
+				xiaoji.innerHTML=danjia.innerHTML*shuliang.value;
+			}
+		}
+		function zongji(){
+			var a=0;
+			var zongji=document.getElementById("div").getElementsByTagName("span")[0];
+			for(var i=0;i<aUl.length;i++){
+				if(aXuan[i].checked){
+					var xiaoji=aUl[i].children[4].lastElementChild;
+					a+=parseFloat(xiaoji.innerHTML);	
+				}	
+			}
+			zongji.innerHTML=a;	
+		}
+		function xuan(){
+			for(var i=0;i<aXuan.length;i++){
+				aXuan[i].onclick=function(){
+					zongji();	
+				}	
+			};	
+		}
+		function yunsuan(){
+			for(var i=0;i<aJia.length;i++){
+				aJia[i].onclick=function(){
+					this.previousElementSibling.value++;
+					xiaoji();
+					zongji();	
+				}
+				aJian[i].onclick=function(){
+					this.nextElementSibling.value--;
+					if(this.nextElementSibling.value<=1)
+					{
+						this.nextElementSibling.value=1;
+					}
+					xiaoji();
+					zongji();	
+				}
+				aShan[i].onclick=function(){
+					this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode);
+					zongji();	
+				}	
+			}	
+		}
+		oQuanxuan.onclick=function(){
+			for(var i=0;i<aXuan.length;i++){
+				aXuan[i].checked=oQuanxuan.checked;	
+			}
+			zongji();	
+		} 
+		oAdd.onclick=function(){
+			var x=document.createElement("ul");
+			x.innerHTML='<li class="li1"><input type="checkbox" name="xuan" checked /></li>'
+        +'<li class="li2"><img src="images/1.jpg"/></li>'
+        +'<li class="li3"><input type="button" value="-" name="jian"/><input type="text" value="1" size="1"/><input type="button" value="+" name="jia"/></li>'
+        +'<li class="li4">$<span>80</span></li>'
+        +'<li class="li5">$<span></span></li>'
+        +'<li class="li6"><input type="button" value="删除" name="shan"/></li>';	
+		x.className="ul2";
+			this.parentNode.parentNode.insertBefore(x,this.parentNode);
+			xiaoji();
+			zongji();
+			xuan();
+			yunsuan();
+		}
+		oQuanshan.onclick=function(){
+			for(var i=aXuan.length-1;i>=0;i--){
+				if(aXuan[i].checked){
+					//alert(aXuan[i].parentNode.parentNode.parentNode)
+					aXuan[i].parentNode.parentNode.parentNode.removeChild(aXuan[i].parentNode.parentNode);	
+				}	
+			}
+			zongji();	
+		}
+		xiaoji();
+		zongji();
+		yunsuan();
+	}
+</script>
+</head>
+<body>
+	<ul class="ul1">
+    	<li class="li1"><input type="checkbox" name="quanxuan" checked />全选</li>
+        <li class="li2">商品名称</li>
+        <li class="li3">商品数量</li>
+        <li class="li4">单价</li>
+        <li class="li5">小计</li>
+        <li class="li6">操作</li>
+    </ul>
+    <ul class="ul2">
+    	<li class="li1"><input type="checkbox" name="xuan" checked /></li>
+        <li class="li2"><img src="images/1.jpg"/></li>
+        <li class="li3"><input type="button" value="-" name="jian"/><input type="text" value="1" size="1"/><input type="button" value="+" name="jia"/></li>
+        <li class="li4">$<span>80</span></li>
+        <li class="li5">$<span></span></li>
+        <li class="li6"><input type="button" value="删除" name="shan"/></li>
+    </ul>
+    <ul class="ul2">
+    	<li class="li1"><input type="checkbox" name="xuan" checked /></li>
+        <li class="li2"><img src="images/2.jpg"/></li>
+        <li class="li3"><input type="button" value="-" name="jian"/><input type="text" value="1" size="1"/><input type="button" value="+" name="jia"/></li>
+        <li class="li4">$<span>50</span></li>
+        <li class="li5">$<span></span></li>
+        <li class="li6"><input type="button" value="删除" name="shan"/></li>
+    </ul>
+    <div id="div">
+    	<input type="button" value="增加一行" name="add"/>
+        <input type="button" value="全删" name="quanshan"/>
+        $<span></span>
+    </div>
+</body>
+</html>

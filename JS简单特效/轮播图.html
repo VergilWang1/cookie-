@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style type="text/css">
+	*{
+		margin:0px;
+		padding:0px;	
+	}
+	#div{
+		position:relative;
+		width:400px;
+		margin:0px auto;	
+	}
+	#div p{
+		position:absolute;	
+		bottom:20px;
+		right:60px;
+		text-align:center;
+	}
+	#div p span{
+		display:inline-block;
+		border:1px solid;
+		width:20px;
+		line-height:20px;
+		cursor:pointer;	
+	}
+</style>
+<script type="text/javascript">
+	window.onload=function(){
+		var oImg=document.getElementsByTagName("img")[0];
+		var aSpan=document.getElementsByTagName("span");
+		var q=0;
+		function oo(){
+			q++;
+			if(q>5){
+				q=1;	
+			}
+			oImg.src="images/"+q+".gif";	
+			for(var j=0;j<aSpan.length;j++){
+				aSpan[j].style.background="#fff";	
+			}
+			aSpan[q-1].style.background="red";	
+		}
+		var timer=setInterval(oo,500);
+		for(var i=0;i<aSpan.length;i++){
+			aSpan[i].onmouseover=function(a){
+				return function(){
+					for(var j=0;j<aSpan.length;j++){
+						aSpan[j].style.background="#fff";	
+					}
+					this.style.background="red";
+					oImg.src="images/"+(a+1)+".gif";
+					q=a+1;
+					clearInterval(timer);	
+				}
+			}(i);
+			aSpan[i].onmouseout=function(){
+				timer=setInterval(oo,500);	
+			}	
+		}	
+	}
+</script>
+</head>
+
+<body>
+	<div id="div">
+    	<img src="images/1.gif"/>
+        <p>
+            <span>1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
+            <span>5</span>
+        </p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style type="text/css">
+	#div{
+		position:absolute;
+		top:100px;
+		left:100px;	
+	}
+	#div span{
+		width:20px;
+		line-height:20px;
+		text-align:center;
+		position:absolute;
+		top:0px;
+		right:0px;
+		border:1px solid;
+		cursor:pointer;	
+	}
+</style>
+<script type="text/javascript">
+	window.onload=function(){
+		var top1;
+		var left1;
+		var oDiv=document.getElementById("div");
+		var oSpan=oDiv.getElementsByTagName("span")[0];
+		oSpan.onclick=function(){
+			oDiv.style.display="none";	
+		}
+		if(oDiv.currentStyle){
+			top1=oDiv.currentStyle.top;
+			left1=oDiv.currentStyle.left;	
+		}else{
+			top1=document.defaultView.getComputedStyle(oDiv,null).top;
+			left1=document.defaultView.getComputedStyle(oDiv,null).left;	
+		}
+		
+		window.onscroll=function(){
+			var top2=document.documentElement.scrollTop+document.body.scrollTop;
+			var left2=document.documentElement.scrollLeft+document.body.scrollLeft;
+			oDiv.style.top=parseFloat(top1)+top2+"px";	
+			oDiv.style.left=parseFloat(left1)+left2+"px";
+		}
+	}
+</script>
+</head>
+
+<body style="width:2000px;height:1000px;">
+	<div id="div">
+    	<img src="images/1.jpg"/>
+        <span>×</span>
+    </div>
+</body>
+</html>
